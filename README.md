@@ -14,12 +14,16 @@ A Model Context Protocol (MCP) server that enables AI assistants to interact wit
 - **MCP Integration**: Full compatibility with MCP clients (stdio transport)
 
 
+## Requirements
+
+- [Bun](https://bun.sh) v1.0+
+
 ## Installation
 
 1. Clone this repository
 2. Install dependencies:
    ```bash
-   npm install
+   bun install
    ```
 
 3. Configure your WAHA API connection:
@@ -40,19 +44,19 @@ Required environment variables in `.env`:
 
 ### Build the project
 ```bash
-npm run build
+bun run build
 ```
 
 ### Run in development mode with auto-reload
 ```bash
-npm run dev
+bun run dev
 ```
 
 ### Test with MCP Inspector
 The MCP Inspector is a web-based tool to test your MCP server interactively:
 
 ```bash
-npm run inspector
+bun run inspector
 ```
 
 This will:
@@ -69,7 +73,7 @@ Use the inspector to:
 ### Run in production
 
 ```bash
-npm start
+bun start
 ```
 
 ## Usage with Claude Desktop
@@ -81,8 +85,8 @@ Add this to your Claude Desktop MCP configuration:
 {
   "mcpServers": {
     "waha": {
-      "command": "node",
-      "args": ["C:\\Users\\YourUsername\\path\\to\\waha\\dist\\index.js"],
+      "command": "bun",
+      "args": ["C:\\Users\\YourUsername\\path\\to\\waha-mcp-server\\src\\index.ts"],
       "env": {
         "WAHA_BASE_URL": "http://localhost:3000",
         "WAHA_API_KEY": "your-api-key-here",
@@ -98,8 +102,8 @@ Add this to your Claude Desktop MCP configuration:
 {
   "mcpServers": {
     "waha": {
-      "command": "node",
-      "args": ["/absolute/path/to/waha-mcp-server/dist/index.js"],
+      "command": "bun",
+      "args": ["/absolute/path/to/waha-mcp-server/src/index.ts"],
       "env": {
         "WAHA_BASE_URL": "http://localhost:3000",
         "WAHA_API_KEY": "your-api-key-here",
@@ -110,7 +114,7 @@ Add this to your Claude Desktop MCP configuration:
 }
 ```
 
-> **Note:** Windows users should use double backslashes (`\\`) in paths.
+> **Note:** Bun runs TypeScript directly — no build step required for MCP client usage. Windows users should use double backslashes (`\\`) in paths.
 
 ## Available Tools
 
